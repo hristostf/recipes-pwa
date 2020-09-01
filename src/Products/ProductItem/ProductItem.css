@@ -1,0 +1,39 @@
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	border-radius: 5px; /* 5px rounded corners */
+	width: 80%;
+	height: 420px;
+	padding: 0px 0px 18px 0px;
+	margin: 20px;
+
+	/* 2.5ex for each visible line */
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+	/* padding: 10px 16px 10px 16px;
+	overflow: hidden; */
+	padding: 2px 16px;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+	border-radius: 5px 5px 0 0;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.card {
+		margin: 20px;
+		width: 350px;
+	}
+}
