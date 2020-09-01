@@ -16,3 +16,20 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();
+
+window.addEventListener('fetch', function (event) {
+	console.log('fetching lalalla');
+	event.respondWith(
+		caches.open('your-app').then(function (cache) {
+			return cache.match(event.request).then(function (response) {
+				return (
+					response ||
+					fetch(event.request).then(function (response) {
+						cache.put(event.request, response.clone());
+						return response;
+					})
+				);
+			});
+		})
+	);
+});

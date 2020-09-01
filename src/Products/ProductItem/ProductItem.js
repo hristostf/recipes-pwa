@@ -5,12 +5,7 @@ import './ProductItem.css';
 const ProductItem = ({ name, price, description, image }) => {
 	return (
 		<div className='card'>
-			<img
-				src={`${image.replace('http', 'https')}?random=${
-					Math.random() * Date.now()
-				}`}
-				alt='Avatar'
-			/>
+			<img src={image} alt='Avatar' />
 			<div className='container'>
 				<h4>
 					<b>{`${name} $${price}`}</b>
