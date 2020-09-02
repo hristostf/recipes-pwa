@@ -80,6 +80,22 @@ if ('function' === typeof importScripts) {
 			})
 		);
 
+		// products data
+		workbox.routing.registerRoute(
+			({ request, url }) => {
+				return url.href.indexOf('/api/v1/products') > -1;
+			},
+			workbox.strategies.staleWhileRevalidate({
+				cacheName: 'dynamic-products',
+				plugins: [
+					new workbox.expiration.Plugin({
+						maxEntries: 60,
+						maxAgeSeconds: 20 * 24 * 60 * 60, // 20 Days
+					}),
+				],
+			})
+		);
+
 		// images
 		workbox.routing.registerRoute(
 			({ request, url }) => {
