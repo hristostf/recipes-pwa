@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-undef */
 if ('function' === typeof importScripts) {
 	importScripts(
 		'https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox-sw.js'
@@ -97,24 +95,8 @@ if ('function' === typeof importScripts) {
 			})
 		);
 
-		// json data capacitor-recipes.herokuapp.com
-		workbox.routing.registerRoute(
-			({ request, url }) => {
-				console.log('url', url);
-				return (
-					url.href.indexOf('/capacitor-recipes.herokuapp.com') > -1
-				);
-			},
-			workbox.strategies.staleWhileRevalidate({
-				cacheName: 'api-data',
-				plugins: [
-					new workbox.expiration.Plugin({
-						maxEntries: 60,
-						maxAgeSeconds: 20 * 24 * 60 * 60, // 20 Days
-					}),
-				],
-			})
-		);
+		//images
+		//\placeimg
 	} else {
 		console.error('Workbox could not be loaded. No offline support');
 	}
