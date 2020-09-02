@@ -11,7 +11,6 @@ const useProducts = () => {
 			.then((data) => {
 				setProducts(data);
 				setLoading(false);
-				localStorage.setItem('DATA', JSON.stringify(data));
 			});
 	}, []);
 
